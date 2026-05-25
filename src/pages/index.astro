@@ -1,19 +1,1158 @@
 ---
-
+// index.astro — Palestinians are Your Eyes | Anqa Theater
+import "../styles/global.css";
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Anqa</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Palestinians are Your Eyes | Anqa Theater</title>
+
+    <!-- Fonts: Playfair Display (headings) + Source Serif 4 (body) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap"
+      rel="stylesheet"
+      <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,600&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap"
+      rel="stylesheet"
+    />
+    />
+
+    <!-- i18next -->
+    <script src="https://unpkg.com/i18next@23.10.0/dist/umd/i18next.min.js"
+    ></script>
+    <script
+      src="https://unpkg.com/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"
+    ></script>
+
+    <!-- <style>
+      /* ─── Reset ─────────────────────────────────────────── */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* ─── Tokens ─────────────────────────────────────────── */
+      :root {
+        --crimson: #561011;
+        --crimson-mid: rgba(86, 16, 17, 0.18);
+        --crimson-dim: rgba(86, 16, 17, 0.08);
+        --ink: #0e0d0e;
+        --ink-soft: #2e2b2c;
+        --paper: #f9f7f5;
+        --paper-warm: #f2eeea;
+        --border: rgba(86, 16, 17, 0.14);
+
+        --ff-display: "Playfair Display", Georgia, serif;
+        --ff-body: "Source Serif 4", Georgia, serif;
+
+        --container: 960px;
+        --gap: clamp(3rem, 6vw, 6rem);
+      }
+
+      /* ─── Base ───────────────────────────────────────────── */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--paper);
+        font-family: var(--ff-body);
+        color: var(--ink);
+        line-height: 1.75;
+        font-size: clamp(1rem, 1.05vw + 0.6rem, 1.15rem);
+        font-weight: 400;
+      }
+
+      /* ─── Scroll-reveal ──────────────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(36px);
+        transition:
+          opacity 0.75s cubic-bezier(0.22, 0.68, 0, 1.2),
+          transform 0.75s cubic-bezier(0.22, 0.68, 0, 1.2);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* staggered children */
+      .reveal-group > * {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.6s cubic-bezier(0.22, 0.68, 0, 1.2),
+          transform 0.6s cubic-bezier(0.22, 0.68, 0, 1.2);
+      }
+      .reveal-group.visible > *:nth-child(1) {
+        opacity: 1;
+        transform: none;
+        transition-delay: 0s;
+      }
+      .reveal-group.visible > *:nth-child(2) {
+        opacity: 1;
+        transform: none;
+        transition-delay: 0.1s;
+      }
+      .reveal-group.visible > *:nth-child(3) {
+        opacity: 1;
+        transform: none;
+        transition-delay: 0.2s;
+      }
+      .reveal-group.visible > *:nth-child(4) {
+        opacity: 1;
+        transform: none;
+        transition-delay: 0.3s;
+      }
+      .reveal-group.visible > *:nth-child(5) {
+        opacity: 1;
+        transform: none;
+        transition-delay: 0.4s;
+      }
+      .reveal-group.visible > *:nth-child(6) {
+        opacity: 1;
+        transform: none;
+        transition-delay: 0.5s;
+      }
+
+      /* ─── Layout ─────────────────────────────────────────── */
+      .wrap {
+        max-width: var(--container);
+        width: 92%;
+        margin: 0 auto;
+      }
+
+      /* ─── Logo placeholder ───────────────────────────────── */
+      .logo-zone {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: clamp(2.5rem, 5vw, 5rem) 0 clamp(1.5rem, 3vw, 3rem);
+      }
+
+      .logo-placeholder {
+        width: clamp(120px, 18vw, 200px);
+        height: clamp(48px, 7vw, 80px);
+        border: 1.5px dashed var(--crimson-mid);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--crimson-mid);
+        font-family: var(--ff-body);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: transparent;
+        user-select: none;
+      }
+
+      /* ─── Header ─────────────────────────────────────────── */
+      .site-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 1rem 0 clamp(0.6rem, 1vw, 2.5rem);
+        border-bottom: 1px solid var(--border);
+        margin-bottom: clamp(2rem, 4vw, 4rem);
+      }
+
+      /* ─── Lang switcher ──────────────────────────────────── */
+      .lang-area {
+        position: relative;
+      }
+
+      .globe-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px;
+        border-radius: 50%;
+        transition: background 0.15s ease;
+      }
+      .globe-btn:hover {
+        background: var(--crimson-dim);
+      }
+
+      .globe-icon {
+        width: 26px;
+        height: 26px;
+        stroke: var(--crimson);
+        stroke-width: 1.4;
+        fill: none;
+      }
+
+      .lang-dropdown {
+        position: absolute;
+        top: 48px;
+        right: 0;
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+        padding: 0.5rem 0;
+        min-width: 140px;
+        z-index: 100;
+        display: none;
+      }
+      .lang-dropdown.show {
+        display: block;
+      }
+
+      .lang-option {
+        padding: 0.65rem 1.3rem;
+        font-family: var(--ff-body);
+        font-size: 0.9rem;
+        color: var(--ink);
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        width: 100%;
+        text-align: left;
+        transition: background 0.12s;
+      }
+      .lang-option:hover {
+        background: var(--crimson-dim);
+      }
+
+      /* ─── Typography ─────────────────────────────────────── */
+      h1 {
+        font-family: var(--ff-display);
+        font-size: clamp(2.8rem, 6vw + 1rem, 5.5rem);
+        font-weight: 900;
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+        color: var(--crimson);
+        margin-bottom: 0.6em;
+      }
+
+      h2 {
+        font-family: var(--ff-display);
+        font-size: clamp(1.6rem, 2.5vw + 0.5rem, 2.6rem);
+        font-weight: 700;
+        line-height: 1.18;
+        color: var(--crimson);
+        border-left: 4px solid var(--crimson);
+        padding-left: 1.1rem;
+        margin: 0 0 0.9em;
+      }
+
+      p {
+        margin-bottom: 1.2em;
+        font-weight: 400;
+        font-size: inherit;
+      }
+      p strong {
+        font-weight: 500;
+        color: var(--ink);
+      }
+      p em {
+        font-style: italic;
+      }
+
+      a {
+        color: var(--crimson);
+        text-underline-offset: 3px;
+      }
+
+      /* ─── Sections ───────────────────────────────────────── */
+      .content-section {
+        padding: clamp(3.5rem, 6vw, 7rem) 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .content-section:last-of-type {
+        border-bottom: none;
+      }
+
+      /* ─── Opening quote ──────────────────────────────────── */
+      .opening-quote {
+        font-family: var(--ff-display);
+        font-style: italic;
+        font-size: clamp(1.15rem, 1.6vw + 0.5rem, 1.7rem);
+        font-weight: 400;
+        line-height: 1.55;
+        color: var(--ink-soft);
+        border-left: 3px solid var(--crimson);
+        padding: 1.4rem 2rem;
+        background: var(--paper-warm);
+        border-radius: 0 14px 14px 0;
+        margin: clamp(1.5rem, 3vw, 3rem) 0;
+      }
+
+      /* ─── Email block ────────────────────────────────────── */
+      .email-line {
+        background: #fff;
+        border: 1px solid #ddd8d8;
+        padding: 1rem 1.4rem;
+        border-radius: 12px;
+        font-family: monospace;
+        font-size: 0.92rem;
+        margin: 1.4rem 0;
+        word-break: break-all;
+        color: var(--ink-soft);
+      }
+
+      /* ─── Credit pills ───────────────────────────────────── */
+      .credit-block {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin: 1.2rem 0;
+      }
+      .credit-item {
+        background: var(--paper-warm);
+        border: 1px solid var(--border);
+        width: calc(50% - 0.55rem);
+        height: 10rem;
+        padding: 0.35rem 1rem;
+        /* border-radius: 30px; */
+        font-size: 0.84rem;
+        color: var(--ink-soft);
+      }
+
+      /* ─── Divider ────────────────────────────────────────── */
+      .section-rule {
+        border: 0;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--crimson-mid),
+          transparent
+        );
+        margin: 0;
+      }
+
+      /* ─── Footer ─────────────────────────────────────────── */
+      footer {
+        padding: clamp(2rem, 4vw, 4rem) 0 clamp(3rem, 5vw, 5rem);
+        text-align: center;
+        font-size: 0.8rem;
+        color: #999;
+        letter-spacing: 0.04em;
+      }
+
+      /* ─── RTL ────────────────────────────────────────────── */
+      body[dir="rtl"] {
+        text-align: right;
+      }
+      body[dir="rtl"] h2 {
+        border-left: none;
+        border-right: 4px solid var(--crimson);
+        padding-left: 0;
+        padding-right: 1.1rem;
+      }
+      body[dir="rtl"] .opening-quote {
+        border-left: none;
+        border-right: 3px solid var(--crimson);
+        border-radius: 14px 0 0 14px;
+      }
+      body[dir="rtl"] .lang-dropdown {
+        right: auto;
+        left: 0;
+      }
+      body[dir="rtl"] .lang-option {
+        text-align: right;
+      }
+
+      /* ─── Responsive ─────────────────────────────────────── */
+      @media (max-width: 640px) {
+        .opening-quote {
+          padding: 1rem 1.2rem;
+        }
+      }
+
+      phoenix-stage {
+        position: relative;
+        width: 100%;
+        height: 520px;
+        overflow: hidden;
+        font-family: monospace;
+        background: transparent;
+      }
+
+      .char-particle {
+        position: absolute;
+        font-size: 13px;
+        line-height: 1;
+        font-family: "Courier New", monospace;
+        font-weight: bold;
+        pointer-events: none;
+        will-change: transform, color, opacity;
+        transition: color 0.6s ease;
+      }
+
+      #restart-btn {
+        display: block;
+        margin: 0 auto 1rem;
+      }
+
+      /* main {
+        background-color: red;
+      } */
+    </style> -->
   </head>
+
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <h1>Anqa</h1>
+    <div class="wrap">
+      <header class="site-header">
+        <div class="lang-area">
+          <button
+            class="globe-btn"
+            id="globeButton"
+            aria-label="Change language"
+          >
+            <svg
+              class="globe-icon"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <path
+                d="M2 12H22M12 2C9.5 4.5 8 8 8 12C8 16 9.5 19.5 12 22C14.5 19.5 16 16 16 12C16 8 14.5 4.5 12 2Z"
+              ></path>
+            </svg>
+          </button>
+          <div id="langMenu" class="lang-dropdown">
+            <button data-lang="en" class="lang-option">English</button>
+            <button data-lang="it" class="lang-option">Italiano</button>
+            <button data-lang="fr" class="lang-option">Français</button>
+            <button data-lang="ar" class="lang-option">العربية</button>
+          </div>
+        </div>
+      </header>
+      <div class="logo-zone reveal">
+        <!-- <div class="logo-placeholder">logo</div> -->
+        <img
+          style="background: #561011; width:30rem; "
+          src="../../src/assets/anQa.svg"
+          alt="Logo"
+        />
+        <!-- <div id="phoenix-stage" aria-label="ASCII art phoenix formed from scattered characters"></div> -->
+      </div>
+
+      <!-- ── Header (lang switcher only) ── -->
+
+      <main>
+        <!-- ── Hero ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <h1 data-i18n="title_main">Palestinians are Your Eyes</h1>
+          </div>
+          <div class="opening-quote reveal" data-i18n="opening_quote">
+            "Palestinians are your eyes, your tattoo. Palestinians are your
+            name, your dreams, your thoughts, and your handkerchief."
+          </div>
+          <div class="reveal">
+            <p data-i18n="intro_para1">
+                       Six stories, four voices from Gaza. <strong
+                >Palestinians are Your Eyes</strong
+              > is a project by the Italian-Palestinian company <strong
+                >Anqa</strong
+              >, bringing to life a collective narrative that knows no borders.
+              On October 15, 2026, these stories will resonate in unison during
+              a nationwide premiere across Italy and beyond.
+            </p>
+            <p data-i18n="intro_para2">
+              We want these stories to reach every corner of the globe. We
+              invite theaters, companies, and artists to become an active part
+              of this choral narrative.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-rule" />
+
+        <!-- ── Why October 15th? ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <h2 data-i18n="why_title">Why October 15th?</h2>
+            <p data-i18n="why_text">
+              October 15th is not just a date on the calendar; it is an open
+              wound in our company's history. On that day in 2023, Abraham
+              Saidam—a young performer with Anqa—was killed by Israeli
+              bombardment. We have chosen this date to honor his memory and
+              transform grief into cultural resistance.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-rule" />
+
+        <!-- ── The Stories ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <h2 data-i18n="stories_title">The Stories</h2>
+            <p data-i18n="stories_text">
+              These are works of fiction interwoven with autobiographical
+              elements—diverse narratives that range from raw realism to
+              allegorical and symbolic language. The six stories offer a
+              "plural" testimony, capturing the tragedy of Gaza from different
+              angles, even before the fateful date of October 7, 2023. They are
+              interpreted through the "eyes" of young women and men who, in
+              their short lives, have known no reality other than one defined by
+              war and segregation.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-rule" />
+
+        <!-- ── Anqa ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <h2 data-i18n="anqa_title">Anqa: The Story of the Company</h2>
+            <p data-i18n="anqa_text1">
+              Between late 2022 and early 2023, a group of Italian operators
+              from Progetto REC.Palestina traveled to the Gaza Strip to found
+              the Anqa Theater Company alongside local youth. Together, they
+              created the production <em>All That's Left to Me</em> (a title paraphrasing
+              Ghassan Kanafani's <em>All That's Left to You</em>).
+            </p>
+            <p data-i18n="anqa_text2">
+              The play premiered at Ayyam Al Masrah (Theatre Day Productions) in
+              Gaza City on January 7, 2023. Inspired by the Odyssey, it served
+              as a metaphor for an infinite journey—the painful narrative of
+              Palestine, a land where refugees cannot return and from which the
+              youth cannot leave.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-rule" />
+
+        <!-- ── A Dream Shattered ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <h2 data-i18n="dream_title">
+              A Dream Shattered: The Canceled Tour
+            </h2>
+            <p data-i18n="dream_text1">
+              After a triumphant debut in Gaza City, covered by international
+              outlets including Al Jazeera, the project was set for a month-long
+              tour in Italy. Stages in Milan, Genoa, Siena, Rome, and Bologna
+              were ready to welcome these young actors.
+            </p>
+            <p data-i18n="dream_text2">
+              Everything was ready. Visas were obtained, contracts signed, and
+              flights booked. They were scheduled to arrive in Italy on October
+              10, 2023. But after October 7, everything changed. In a matter of
+              hours, the dream became a nightmare.
+            </p>
+            <p data-i18n="dream_text3">
+              On October 15, 2023—the day rehearsals were to begin in Milan—we
+              received the devastating news: Abraham Saidam, who played
+              Odysseus, had been killed. Abraham was posthumously awarded the
+              "President of the Jury" prize at the 4th Ivo Chiesa International
+              Awards by Gad Lerner. The award was accepted by project
+              coordinators Simon Pietro De Domenico and Ivan Taverniti, with the
+              promise to deliver it to Abraham's father—the sole survivor of the
+              massacre—when possible.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-rule" />
+
+        <!-- ── New Project ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <h2 data-i18n="newproject_title">
+              The New Project: Palestinians are Your Eyes
+            </h2>
+            <p data-i18n="newproject_text">
+              Following a period of profound despair, the artists of Anqa—both
+              Italian and Gazan—realized that the best way to honor Abraham was
+              to resist through art. Despite the ongoing bombardment and
+              survival-level conditions, they decided to create a new work: a
+              cry of desperation that does not block the path to hope. While
+              current circumstances prevent these young artists from returning
+              to the physical stage, nothing can stop them from entrusting their
+              stories to the written word.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-rule" />
+
+        <!-- ── Documentary ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <h2 data-i18n="doc_title">The Documentary Film</h2>
+            <p data-i18n="doc_text">
+              The impact of Palestinians are Your Eyes will extend beyond the
+              stage. Each performance will be recorded to contribute to a
+              collective documentary film, gathering emotions and
+              interpretations from various stages across the country.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-rule" />
+
+        <!-- ── Conclusion ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <p
+              data-i18n="conclusion_text"
+              style="font-weight:700; font-size:1.5rem; text-align:center;"
+            >
+              Theater has always held the power to speak what is often ignored.
+              Through Palestinians are Your Eyes, those living a reality usually
+              seen only through filtered news fragments can finally be heard.
+              This project is more than a play; it is a bridge between worlds
+              and an act of civil testimony. The title is taken from a verse by
+              the poet Mahmoud Darwish in <em>Lover from Palestine</em>.
+            </p>
+          </div>
+        </section>
+
+        <hr class="section-rule" />
+
+        <!-- ── How to Participate ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <h2 data-i18n="participate_title">
+              How to Participate: October 15, 2026
+            </h2>
+            <p data-i18n="participate_text">
+              To help build this collective memory, we invite theatrical
+              institutions, associations, schools, bookstores, and collectives
+              to host a performance on October 15, 2026. The project is designed
+              for maximum sustainability with minimal technical requirements; it
+              can be staged as a simple dramatic reading.
+            </p>
+            <div class="email-line">
+              ✉️ <strong>Email:</strong> progettorec.palestina@gmail.com | CC: s.dedomenico@gmail.com
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-rule" />
+
+        <!-- ── Credits ── -->
+        <section class="content-section">
+          <div class="reveal">
+            <h2 data-i18n="authors_label">
+              <strong>Our Tutors & Authors:</strong>
+            </h2>
+
+            <div class="credit-block reveal-group">
+              <div class="credit-item">
+                <span class="credit-author">Ibrahim Alhelou</span>
+                <span class="credit-stories">Poesia Madre · Il pedone</span>
+              </div>
+              <div class="credit-item">
+                <span class="credit-author">Dalal Elswerky</span>
+                <span class="credit-stories"
+                  >Sotto un cielo verde oliva · Un pilastro nel cemento</span
+                >
+              </div>
+              <div class="credit-item">
+                <span class="credit-author">Fatma Yousef</span>
+                <span class="credit-stories">Prima Lezione</span>
+              </div>
+              <div class="credit-item">
+                <span class="credit-author">Ala'a Sbaiah</span>
+                <span class="credit-stories">Anqa Maghrib</span>
+              </div>
+            </div>
+            <p style="font-weight:500; margin-bottom: 0.5rem;">Tutors</p>
+            <div class="tutor-block">
+              <span class="tutor-item"
+                >Simon Pietro De Domenico (Coordinator)</span
+              >
+              <span class="tutor-item">Giulia Borghi</span>
+              <span class="tutor-item">Stefania Buraschi</span>
+              <span class="tutor-item">Donato Loiacono</span>
+              <span class="tutor-item">Mattia Majerna</span>
+              <span class="tutor-item">Ivan Taverniti</span>
+            </div>
+
+            <!-- <p data-i18n="tutors_text">
+              <strong>Tutors:</strong> Simon Pietro De Domenico (Coordinator), Giulia
+              Borghi, Stefania Buraschi, Donato Loiacono, Mattia Majerna, Ivan Taverniti.
+            </p>
+            <p data-i18n="promoted_text">
+              <strong>Promoted by:</strong> Progetto REC.Palestina, APS Scighera,
+              ACS ONG, VIK CENTER, PEM - HABITAT TEATRALI, and AUDREY ANPI.
+            </p> -->
+          </div>
+        </section>
+      </main>
+
+      <footer class="reveal">
+        <span data-i18n="footer_text"
+          >Palestinians are Your Eyes — collective narrative without borders. ©
+          Anqa Theater Company</span
+        >
+      </footer>
+    </div>
+
+    <script>
+      // const PHOENIX_ART = [
+      //   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀",
+      //   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⢀⣴⣿⠟⠁⠀⠀⣿⣿⣽⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠟⠁⠀⠀⠀⢠⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀",
+      //   "⠀⠀⠀⠀⠀⠀⠀⠀ ⢀⡾⠋⠀⠀⠀⠀⣠⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀    ⣄⠀⠀⠀⠀⠀⠀⠀⠀   ",
+      //   "⠀⠀⠀⠀ ⠀⠀⠰⠁⠀⠀⣀⣀⣠⣿⣿⣿⣿⣟⡿⠀⠀⠀⠀⠀⣀..⣀⠀  ⠘⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⣿⠟⠁⣸⠃⠀⠀⠀⠀⠀⠐⠀⠀⠀⠈⣿⣆⠀⠈⢻⣿⣄⠀⠀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣯⠗⠁⠀⢠⡏⠀⠀⠀⠀⠀⠀⠈⡀⠀⠀⠀⠹⣿⣆⠀⠀⢻⣿⡄⠀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⡷⠋⠀⠀⠀⡾⠀⠀⠀⠀⠀⠀⠀⠀⠢⠀⠀⠀⠀⢻⣿⣦⡀⠀⢻⣿⡀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⡟⠁⠀⠀⠀⢸⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⣄⡀⠀⠀⠙⢿⣿⣷⣼⣿⡇⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⢰⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠘⢿⣦⣤⣤⣠⣀⡀⠀⠀⠀⠀⠈⢻⣶⣄⠀⠀⠉⠻⣿⣿⣿⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠛⠛⠿⣦⡀⠀⠀⠀⠙⠻⠁⠀⠀⠀⢹⣿⣿⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⣿⣿⣿⣷⡯⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⣶⣶⣦⣦⣈⢿⡆⠀⠀⠀⠀⠀⠀⠀⠀⣽⣿⣿⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⣿⣿⣿⣟⡧⠀⠀⠀⠀⠀⠀⣰⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⣰⣿⣿⡟⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠈⢿⣿⣷⣿⣆⠀⠀⠀⢀⣿⣿⣿⣯⡏⠀⠀⠀⠀⠈⣿⣷⣿⡿⠀⠀⠀⠀⣰⣿⣿⣿⡏⠀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣆⠀⠀⠐⣿⣿⣟⣿⡇⠀⠀⠀⠀⢠⣿⣿⡿⠃⠀⠀⣠⣾⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⠀⠈⢻⣿⣾⣿⣷⣀⠀⢹⣿⣿⣿⣿⣄⡀⠐⠚⠻⠛⠋⠁⢀⣤⣾⣿⣿⡿⡿⠃⠀⠀⠀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣷⣤⣹⣿⣟⣿⣿⣿⣶⣦⣦⣴⣶⣾⣿⣿⣿⣿⠯⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⢿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⢿⣿⡿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      //   "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠓⠛⠛⠛⠛⠚⠛⠙⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      // ].map((r) => r.padEnd(50, " "));
+
+      // const CHAR_POOL =
+      //   "!@#$%^&*ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789<>{}[]|\\".split(
+      //     "",
+      //   );
+
+      // const COL_W = 8,
+      //   ROW_H = 16;
+      // const ROWS = PHOENIX_ART.length,
+      //   COLS = PHOENIX_ART[0].length;
+
+      // function getPhoenixColor(row, col) {
+      //   const t = row / ROWS;
+      //   const c = col / COLS;
+      //   if (t < 0.15) return `hsl(${40 + c * 20}, 100%, ${70 + t * 60}%)`;
+      //   if (t < 0.4) return `hsl(${30 + c * 30}, 100%, 60%)`;
+      //   if (t < 0.7) return `hsl(${20 + c * 10}, 95%, 52%)`;
+      //   return `hsl(${10 + c * 20}, 90%, 45%)`;
+      // }
+
+      // function randChar() {
+      //   return CHAR_POOL[Math.floor(Math.random() * CHAR_POOL.length)];
+      // }
+
+      // let particles = [];
+      // let animFrames = [];
+
+      // function clearAnimation() {
+      //   animFrames.forEach((id) => cancelAnimationFrame(id));
+      //   animFrames = [];
+      //   particles = [];
+      // }
+
+      // function initAnimation() {
+      //   clearAnimation();
+      //   const stage = document.getElementById("phoenix-stage");
+      //   stage.innerHTML = "";
+
+      //   const stageW = stage.offsetWidth || 680;
+      //   const stageH = stage.offsetHeight || 520;
+
+      //   const targets = [];
+      //   for (let r = 0; r < ROWS; r++) {
+      //     for (let c = 0; c < COLS; c++) {
+      //       const ch = PHOENIX_ART[r][c];
+      //       if (ch !== " ") targets.push({ row: r, col: c, ch });
+      //     }
+      //   }
+
+      //   const offsetX = Math.max(0, (stageW - COLS * COL_W) / 2);
+      //   const offsetY = Math.max(0, (stageH - ROWS * ROW_H) / 2);
+
+      //   particles = targets.map(({ row, col, ch }) => {
+      //     const el = document.createElement("div");
+      //     el.className = "char-particle";
+      //     el.textContent = randChar();
+      //     el.style.color = `hsl(0, 0%, ${30 + Math.random() * 30}%)`;
+      //     el.style.opacity = "0.7";
+
+      //     const tx = offsetX + col * COL_W;
+      //     const ty = offsetY + row * ROW_H;
+
+      //     const spreadRadius = Math.min(stageW, stageH) * 0.55;
+      //     const angle = Math.random() * Math.PI * 2;
+      //     const dist = spreadRadius * (0.3 + Math.random() * 0.7);
+      //     const sx = tx + Math.cos(angle) * dist + (Math.random() - 0.5) * 80;
+      //     const sy = stageH * 0.85 + (Math.random() - 0.5) * 120;
+
+      //     el.style.left = sx + "px";
+      //     el.style.top = sy + "px";
+      //     stage.appendChild(el);
+
+      //     return {
+      //       el,
+      //       sx,
+      //       sy,
+      //       tx,
+      //       ty,
+      //       row,
+      //       col,
+      //       ch,
+      //       finalColor: getPhoenixColor(row, col),
+      //     };
+      //   });
+
+      //   const DELAY_BASE = 400;
+      //   const TRAVEL_DURATION = 1600;
+      //   const SCRAMBLE_DURATION = 600;
+      //   const STAGGER = 1200;
+      //   const START = performance.now();
+
+      //   function easeOutExpo(t) {
+      //     return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      //   }
+      //   function easeInOutCubic(t) {
+      //     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      //   }
+
+      //   let lastScramble = 0;
+
+      //   function tick(now) {
+      //     const elapsed = now - START;
+      //     let anyActive = false;
+      //     const scrambleNow = now - lastScramble > 80;
+      //     if (scrambleNow) lastScramble = now;
+
+      //     for (let i = 0; i < particles.length; i++) {
+      //       const p = particles[i];
+      //       const delay =
+      //         DELAY_BASE + ((p.row * COLS + p.col) / (ROWS * COLS)) * STAGGER;
+      //       const localT = elapsed - delay;
+
+      //       if (localT < 0) {
+      //         anyActive = true;
+      //         if (scrambleNow) p.el.textContent = randChar();
+      //         continue;
+      //       }
+
+      //       if (localT < TRAVEL_DURATION) {
+      //         anyActive = true;
+      //         const rawT = localT / TRAVEL_DURATION;
+      //         const t = easeOutExpo(rawT);
+      //         const x = p.sx + (p.tx - p.sx) * t;
+      //         const y = p.sy + (p.ty - p.sy) * t;
+      //         p.el.style.left = x + "px";
+      //         p.el.style.top = y + "px";
+
+      //         if (rawT < 0.5 && scrambleNow) p.el.textContent = randChar();
+      //         else if (rawT >= 0.5 && p.el.textContent !== p.ch) {
+      //           p.el.textContent = p.ch;
+      //           p.el.style.color = p.finalColor;
+      //           p.el.style.opacity = "1";
+      //         }
+      //       } else if (localT < TRAVEL_DURATION + SCRAMBLE_DURATION) {
+      //         p.el.style.left = p.tx + "px";
+      //         p.el.style.top = p.ty + "px";
+      //         p.el.textContent = p.ch;
+      //         p.el.style.color = p.finalColor;
+      //         p.el.style.opacity = "1";
+      //       } else {
+      //         p.el.style.left = p.tx + "px";
+      //         p.el.style.top = p.ty + "px";
+      //         p.el.textContent = p.ch;
+      //         p.el.style.color = p.finalColor;
+      //         p.el.style.opacity = "1";
+      //       }
+      //     }
+      //     if (
+      //       elapsed <
+      //       DELAY_BASE + STAGGER + TRAVEL_DURATION + SCRAMBLE_DURATION + 200
+      //     ) {
+      //       animFrames.push(requestAnimationFrame(tick));
+      //     }
+      //   }
+
+      //   animFrames.push(requestAnimationFrame(tick));
+      // }
+
+      // initAnimation();
+      /* Scroll-reveal observer */
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              // observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      document
+        .querySelectorAll(".reveal, .reveal-group")
+        .forEach((el) => observer.observe(el));
+
+      /*  i18n resources */
+      const resources = {
+        en: {
+          translation: {
+            title_main: "Palestinians are Your Eyes",
+            opening_quote:
+              '"Palestinians are your eyes, your tattoo. Palestinians are your name, your dreams, your thoughts, and your handkerchief."',
+            intro_para1:
+              "Six stories, four voices from Gaza. <strong>Palestinians are Your Eyes</strong> is a project by the Italian-Palestinian company <strong>Anqa</strong>, bringing to life a collective narrative that knows no borders. On October 15, 2026, these stories will resonate in unison during a nationwide premiere across Italy and beyond.",
+            intro_para2:
+              "We want these stories to reach every corner of the globe. We invite theaters, companies, and artists to become an active part of this choral narrative.",
+            why_title: "Why October 15th?",
+            why_text:
+              "October 15th is not just a date on the calendar; it is an open wound in our company's history. On that day in 2023, Abraham Saidam—a young performer with Anqa—was killed by Israeli bombardment. We have chosen this date to honor his memory and transform grief into cultural resistance.",
+            stories_title: "The Stories",
+            stories_text:
+              "These are works of fiction interwoven with autobiographical elements—diverse narratives that range from raw realism to allegorical and symbolic language. The six stories offer a 'plural' testimony, capturing the tragedy of Gaza from different angles, even before the fateful date of October 7, 2023. They are interpreted through the 'eyes' of young women and men who, in their short lives, have known no reality other than one defined by war and segregation.",
+            anqa_title: "Anqa: The Story of the Company",
+            anqa_text1:
+              "Between late 2022 and early 2023, a group of Italian operators from Progetto REC.Palestina traveled to the Gaza Strip to found the Anqa Theater Company alongside local youth. Together, they created the production <em>All That's Left to Me</em> (a title paraphrasing Ghassan Kanafani's <em>All That's Left to You</em>).",
+            anqa_text2:
+              "The play premiered at Ayyam Al Masrah (Theatre Day Productions) in Gaza City on January 7, 2023. Inspired by the Odyssey, it served as a metaphor for an infinite journey—the painful narrative of Palestine, a land where refugees cannot return and from which the youth cannot leave.",
+            dream_title: "A Dream Shattered: The Canceled Tour",
+            dream_text1:
+              "After a triumphant debut in Gaza City, covered by international outlets including Al Jazeera, the project was set for a month-long tour in Italy. Stages in Milan, Genoa, Siena, Rome, and Bologna were ready to welcome these young actors.",
+            dream_text2:
+              "Everything was ready. Visas were obtained, contracts signed, and flights booked. They were scheduled to arrive in Italy on October 10, 2023. But after October 7, everything changed. In a matter of hours, the dream became a nightmare.",
+            dream_text3:
+              "On October 15, 2023—the day rehearsals were to begin in Milan—we received the devastating news: Abraham Saidam, who played Odysseus, had been killed. Abraham was posthumously awarded the 'President of the Jury' prize at the 4th Ivo Chiesa International Awards by Gad Lerner. The award was accepted by project coordinators Simon Pietro De Domenico and Ivan Taverniti, with the promise to deliver it to Abraham's father—the sole survivor of the massacre—when possible.",
+            newproject_title: "The New Project: Palestinians are Your Eyes",
+            newproject_text:
+              "Following a period of profound despair, the artists of Anqa—both Italian and Gazan—realized that the best way to honor Abraham was to resist through art. Despite the ongoing bombardment and survival-level conditions, they decided to create a new work: a cry of desperation that does not block the path to hope. While current circumstances prevent these young artists from returning to the physical stage, nothing can stop them from entrusting their stories to the written word.",
+            doc_title: "The Documentary Film",
+            doc_text:
+              "The impact of Palestinians are Your Eyes will extend beyond the stage. Each performance will be recorded to contribute to a collective documentary film, gathering emotions and interpretations from various stages across the country.",
+            conclusion_title: "Conclusion",
+            conclusion_text:
+              "Theater has always held the power to speak what is often ignored. Through Palestinians are Your Eyes, those living a reality usually seen only through filtered news fragments can finally be heard. This project is more than a play; it is a bridge between worlds and an act of civil testimony. The title is taken from a verse by the poet Mahmoud Darwish in <em>Lover from Palestine</em>.",
+            participate_title: "How to Participate: October 15, 2026",
+            participate_text:
+              "To help build this collective memory, we invite theatrical institutions, associations, schools, bookstores, and collectives to host a performance on October 15, 2026. The project is designed for maximum sustainability with minimal technical requirements; it can be staged as a simple dramatic reading.",
+            credits_title: "Credits",
+            authors_label: "<strong>Our Authors:</strong>",
+            tutors_text:
+              "<strong>Tutors:</strong> Simon Pietro De Domenico (Coordinator), Giulia Borghi, Stefania Buraschi, Donato Loiacono, Mattia Majerna, Ivan Taverniti.",
+            promoted_text:
+              "<strong>Promoted by:</strong> Progetto REC.Palestina, APS Scighera, ACS ONG, VIK CENTER, PEM - HABITAT TEATRALI, and AUDREY ANPI.",
+            footer_text:
+              "Palestinians are Your Eyes — collective narrative without borders. © Anqa Theater Company",
+          },
+        },
+        it: {
+          translation: {
+            title_main: "Palestinesi sono i tuoi occhi",
+            opening_quote:
+              '"I palestinesi sono i tuoi occhi, il tuo tatuaggio. I palestinesi sono il tuo nome, i tuoi sogni, i tuoi pensieri, il tuo fazzoletto."',
+            intro_para1:
+              "Sei storie, quattro voci da Gaza. <strong>Palestinesi sono i tuoi occhi</strong> è un progetto della compagnia italo-palestinese <strong>Anqa</strong>, che dà vita a una narrazione collettiva senza confini. Il 15 ottobre 2026, queste storie risuoneranno all'unisono durante una prima nazionale in tutta Italia e oltre.",
+            intro_para2:
+              "Vogliamo che queste storie raggiungano ogni angolo del globo. Invitiamo teatri, compagnie e artisti a diventare parte attiva di questa narrazione corale.",
+            why_title: "Perché il 15 ottobre?",
+            why_text:
+              "Il 15 ottobre non è solo una data sul calendario; è una ferita aperta nella storia della nostra compagnia. Quel giorno del 2023, Abraham Saidam, giovane performer di Anqa, è stato ucciso dai bombardamenti israeliani. Abbiamo scelto questa data per onorare la sua memoria e trasformare il dolore in resistenza culturale.",
+            stories_title: "Le storie",
+            stories_text:
+              "Opere di finzione intrecciate ad elementi autobiografici: narrazioni diverse che vanno dal realismo crudo al linguaggio allegorico e simbolico. Le sei storie offrono una testimonianza 'plurale', catturando la tragedia di Gaza da diverse angolazioni, anche prima del fatidico 7 ottobre 2023. Sono interpretate attraverso gli 'occhi' di giovani donne e uomini che, nella loro breve vita, non hanno conosciuto altra realtà se non quella segnata dalla guerra e dalla segregazione.",
+            anqa_title: "Anqa: la storia della compagnia",
+            anqa_text1:
+              "Tra la fine del 2022 e l'inizio del 2023, un gruppo di operatori italiani del Progetto REC.Palestina si è recato nella striscia di Gaza per fondare la compagnia teatrale Anqa insieme a giovani locali. Insieme hanno creato lo spettacolo <em>All That's Left to Me</em> (parafrasando <em>All That's Left to You</em> di Ghassan Kanafani).",
+            anqa_text2:
+              "Lo spettacolo è stato presentato in anteprima all'Ayyam Al Masrah (Teatro Day Productions) a Gaza City il 7 gennaio 2023. Ispirato all'Odissea, è servito come metafora di un viaggio infinito: la dolorosa narrazione della Palestina, terra dove i rifugiati non possono tornare e da cui i giovani non possono partire.",
+            dream_title: "Un sogno infranto: il tour cancellato",
+            dream_text1:
+              "Dopo un debutto trionfale a Gaza City, seguito da media internazionali tra cui Al Jazeera, il progetto era pronto per un tour di un mese in Italia. Palchi a Milano, Genova, Siena, Roma e Bologna erano pronti ad accogliere questi giovani attori.",
+            dream_text2:
+              "Tutto era pronto. Visti ottenuti, contratti firmati e voli prenotati. Sarebbero arrivati in Italia il 10 ottobre 2023. Ma dopo il 7 ottobre tutto è cambiato. In poche ore il sogno si è trasformato in incubo.",
+            dream_text3:
+              "Il 15 ottobre 2023, il giorno in cui le prove sarebbero dovute iniziare a Milano, abbiamo ricevuto la notizia devastante: Abraham Saidam, che interpretava Ulisse, era stato ucciso. Abraham ha ricevuto postumo il premio 'Presidente della Giuria' al 4° Ivo Chiesa International Awards da Gad Lerner. Il premio è stato ritirato dai coordinatori del progetto Simon Pietro De Domenico e Ivan Taverniti, con la promessa di consegnarlo al padre di Abraham, unico sopravvissuto del massacro, quando possibile.",
+            newproject_title:
+              "Il nuovo progetto: Palestinesi sono i tuoi occhi",
+            newproject_text:
+              "Dopo un periodo di profonda disperazione, gli artisti di Anqa, sia italiani che gazawi, hanno capito che il modo migliore per onorare Abraham era resistere attraverso l'arte. Nonostante il bombardamento in corso e condizioni di sopravvivenza, hanno deciso di creare una nuova opera: un grido di disperazione che non blocca la strada alla speranza. Le circostanze attuali impediscono a questi giovani artisti di tornare sul palco fisico, ma nulla può impedire loro di affidare le loro storie alla parola scritta.",
+            doc_title: "Il film documentario",
+            doc_text:
+              "L'impatto di 'Palestinesi sono i tuoi occhi' si estenderà oltre il palco. Ogni performance sarà registrata per contribuire a un film documentario collettivo, raccogliendo emozioni e interpretazioni da vari palchi del paese.",
+            conclusion_title: "Conclusione",
+            conclusion_text:
+              "Il teatro ha sempre avuto il potere di raccontare ciò che viene spesso ignorato. Attraverso 'Palestinesi sono i tuoi occhi', coloro che vivono una realtà solitamente vista solo attraverso frammenti di notizie filtrate possono finalmente essere ascoltati. Questo progetto è più di un'opera teatrale: è un ponte tra mondi e un atto di testimonianza civile. Il titolo è tratto da un verso del poeta Mahmoud Darwish in <em>Amante dalla Palestina</em>.",
+            participate_title: "Come partecipare: 15 ottobre 2026",
+            participate_text:
+              "Per contribuire a costruire questa memoria collettiva, invitiamo istituzioni teatrali, associazioni, scuole, librerie e collettivi a ospitare una rappresentazione il 15 ottobre 2026. Il progetto è pensato per la massima sostenibilità con requisiti tecnici minimi; può essere messo in scena come semplice lettura drammatica.",
+            credits_title: "Crediti",
+            authors_label: "<strong>Autori:</strong>",
+            tutors_text:
+              "<strong>Tutor:</strong> Simon Pietro De Domenico (Coordinatore), Giulia Borghi, Stefania Buraschi, Donato Loiacono, Mattia Majerna, Ivan Taverniti.",
+            promoted_text:
+              "<strong>Promosso da:</strong> Progetto REC.Palestina, APS Scighera, ACS ONG, VIK CENTER, PEM - HABITAT TEATRALI, and AUDREY ANPI.",
+            footer_text:
+              "Palestinesi sono i tuoi occhi — narrazione collettiva senza confini. © Anqa Theater Company",
+          },
+        },
+        fr: {
+          translation: {
+            title_main: "Les Palestiniens sont tes yeux",
+            opening_quote:
+              '"Les Palestiniens sont tes yeux, ton tatouage. Les Palestiniens sont ton nom, tes rêves, tes pensées, ton mouchoir."',
+            intro_para1:
+              "Six histoires, quatre voix de Gaza. <strong>Les Palestiniens sont tes yeux</strong> est un projet de la compagnie italo-palestinienne <strong>Anqa</strong>, donnant vie à un récit collectif sans frontières. Le 15 octobre 2026, ces histoires résonneront à l'unisson lors d'une première nationale en Italie et au-delà.",
+            intro_para2:
+              "Nous voulons que ces histoires atteignent tous les coins du globe. Nous invitons les théâtres, compagnies et artistes à devenir partie prenante de ce récit choral.",
+            why_title: "Pourquoi le 15 octobre ?",
+            why_text:
+              "Le 15 octobre n'est pas seulement une date sur le calendrier ; c'est une plaie ouverte dans l'histoire de notre compagnie. Ce jour-là en 2023, Abraham Saidam, jeune interprète d'Anqa, a été tué par les bombardements israéliens. Nous avons choisi cette date pour honorer sa mémoire et transformer le deuil en résistance culturelle.",
+            stories_title: "Les histoires",
+            stories_text:
+              "Des œuvres de fiction mêlées d'éléments autobiographiques, des récits allant du réalisme cru au langage allégorique et symbolique. Les six histoires offrent un témoignage 'pluriel', capturant la tragédie de Gaza sous différents angles, avant même la date fatidique du 7 octobre 2023. Elles sont interprétées à travers les 'yeux' de jeunes femmes et hommes qui, dans leur courte vie, n'ont connu d'autre réalité que celle marquée par la guerre et la ségrégation.",
+            anqa_title: "Anqa : l'histoire de la compagnie",
+            anqa_text1:
+              "Entre fin 2022 et début 2023, un groupe d'opérateurs italiens du Progetto REC.Palestina s'est rendu dans la bande de Gaza pour fonder la compagnie théâtrale Anqa avec des jeunes locaux. Ensemble, ils ont créé le spectacle <em>All That's Left to Me</em> (un titre paraphrasant <em>All That's Left to You</em> de Ghassan Kanafani).",
+            anqa_text2:
+              "La pièce a été créée à Ayyam Al Masrah (Theatre Day Productions) à Gaza le 7 janvier 2023. Inspirée de l'Odyssée, elle a servi de métaphore d'un voyage infini : le récit douloureux de la Palestine, une terre où les réfugiés ne peuvent pas revenir et que les jeunes ne peuvent pas quitter.",
+            dream_title: "Un rêve brisé : la tournée annulée",
+            dream_text1:
+              "Après des débuts triomphants à Gaza, couverts par les médias internationaux dont Al Jazeera, le projet devait faire une tournée d'un mois en Italie. Les scènes de Milan, Gênes, Sienne, Rome et Bologne étaient prêtes à accueillir ces jeunes acteurs.",
+            dream_text2:
+              "Tout était prêt. Visas obtenus, contrats signés, vols réservés. Ils devaient arriver en Italie le 10 octobre 2023. Mais après le 7 octobre, tout a changé. En quelques heures, le rêve est devenu un cauchemar.",
+            dream_text3:
+              "Le 15 octobre 2023, jour où les répétitions devaient commencer à Milan, nous avons reçu la nouvelle dévastatrice : Abraham Saidam, qui jouait Ulysse, avait été tué. Abraham a reçu à titre posthume le prix 'Président du jury' aux 4e Ivo Chiesa International Awards par Gad Lerner. Le prix a été accepté par les coordinateurs du projet Simon Pietro De Domenico et Ivan Taverniti, avec la promesse de le remettre au père d'Abraham, seul survivant du massacre, quand ce sera possible.",
+            newproject_title:
+              "Le nouveau projet : Les Palestiniens sont tes yeux",
+            newproject_text:
+              "Après une période de profond désespoir, les artistes d'Anqa – italiens et gazaouis – ont réalisé que la meilleure façon d'honorer Abraham était de résister par l'art. Malgré les bombardements constants et des conditions de survie, ils ont décidé de créer une nouvelle œuvre : un cri de désespoir qui n'obstrue pas le chemin de l'espoir. Les circonstances actuelles empêchent ces jeunes artistes de revenir sur scène, mais rien ne peut les empêcher de confier leurs histoires à l'écrit.",
+            doc_title: "Le film documentaire",
+            doc_text:
+              "L'impact des 'Palestiniens sont tes yeux' s'étendra au-delà de la scène. Chaque représentation sera enregistrée pour contribuer à un film documentaire collectif, rassemblant émotions et interprétations sur différentes scènes du pays.",
+            conclusion_title: "Conclusion",
+            conclusion_text:
+              "Le théâtre a toujours eu le pouvoir de dire ce qui est souvent ignoré. À travers 'Les Palestiniens sont tes yeux', ceux qui vivent une réalité habituellement vue uniquement à travers des fragments d'actualités filtrées peuvent enfin être entendus. Ce projet est plus qu'une pièce de théâtre : c'est un pont entre les mondes et un acte de témoignage citoyen. Le titre est tiré d'un vers du poète Mahmoud Darwish dans <em>Amoureux de la Palestine</em>.",
+            participate_title: "Comment participer : 15 octobre 2026",
+            participate_text:
+              "Pour aider à construire cette mémoire collective, nous invitons les institutions théâtrales, associations, écoles, librairies et collectifs à accueillir une représentation le 15 octobre 2026. Le projet est conçu pour une durabilité maximale avec des exigences techniques minimales ; il peut être mis en scène comme une simple lecture dramatique.",
+            credits_title: "Crédits",
+            authors_label: "<strong>Auteurs :</strong>",
+            tutors_text:
+              "<strong>Tuteurs :</strong> Simon Pietro De Domenico (Coordinateur), Giulia Borghi, Stefania Buraschi, Donato Loiacono, Mattia Majerna, Ivan Taverniti.",
+            promoted_text:
+              "<strong>Promu par :</strong> Progetto REC.Palestina, APS Scighera, ACS ONG, VIK CENTER, PEM - HABITAT TEATRALI, et AUDREY ANPI.",
+            footer_text:
+              "Les Palestiniens sont tes yeux — récit collectif sans frontières. © Anqa Theater Company",
+          },
+        },
+        ar: {
+          translation: {
+            title_main: "الفلسطينيون عيناك",
+            opening_quote:
+              '"الفلسطينيون عيناك، وشمك. الفلسطينيون اسمك، أحلامك، أفكارك، ومنديلك."',
+            intro_para1:
+              "ست قصص، أربعة أصوات من غزة. <strong>الفلسطينيون عيناك</strong> هو مشروع من شركة أنقا الإيطالية الفلسطينية، يقدم سردية جماعية بلا حدود. في 15 أكتوبر 2026، سترن هذه القصص بصوت واحد خلال عرض أول وطني في إيطاليا وخارجها.",
+            intro_para2:
+              "نريد لهذه القصص أن تصل إلى كل ركن من العالم. ندعو المسارح والشركات والفنانين ليصبحوا جزءًا نشطًا من هذه الرواية الجمعية.",
+            why_title: "لماذا الخامس عشر من أكتوبر؟",
+            why_text:
+              "الخامس عشر من أكتوبر ليس مجرد تاريخ في التقويم؛ إنه جرح مفتوح في تاريخ شركتنا. في ذلك اليوم من عام 2023، قُتل إبراهيم سعيدام، المؤدي الشاب في أنقا، بالقصف الإسرائيلي. اخترنا هذا التاريخ تكريمًا لذكراه وتحويل الحزن إلى مقاومة ثقافية.",
+            stories_title: "القصص",
+            stories_text:
+              "هذه أعمال خيالية تتخللها عناصر سيرة ذاتية، روايات متنوعة تتراوح بين الواقعية الخام واللغة الرمزية. تقدم القصص الست شهادة 'متعددة'، تلتقط مأساة غزة من زوايا مختلفة، حتى قبل التاريخ المصيري 7 أكتوبر 2023. تُروى من خلال 'عيون' فتيات وشبان لم يعرفوا في حياتهم القصيرة واقعًا غير الحرب والفصل العنصري.",
+            anqa_title: "أنقا: حكاية الشركة",
+            anqa_text1:
+              "بين أواخر 2022 وأوائل 2023، سافر مجموعة من المشغلين الإيطاليين من مشروع REC.Palestina إلى قطاع غزة لتأسيس شركة مسرح أنقا مع شباب محليين. معًا، ابتكروا إنتاج <em>كل ما تبقى لي</em> (عنوان مقتبس من غسان كنفاني <em>كل ما تبقى لكم</em>).",
+            anqa_text2:
+              "عُرضت المسرحية لأول مرة في أيام المسرح (إنتاجات يوم المسرح) في مدينة غزة في 7 يناير 2023. مستوحاة من الأوديسة، كانت استعارة لرحلة لا نهاية لها – السردية المؤلمة لفلسطين، أرض لا يمكن للاجئين العودة إليها ولا يمكن للشباب مغادرتها.",
+            dream_title: "حلم محطم: الجولة الملغاة",
+            dream_text1:
+              "بعد ظهور ناجح في غزة، غطته وسائل إعلام دولية بما في ذلك الجزيرة، كان المشروع جاهزًا لجولة لمدة شهر في إيطاليا. كانت المسارح في ميلانو وجنوة وسيينا وروما وبولونيا على استعداد لاستقبال هؤلاء الممثلين الشباب.",
+            dream_text2:
+              "كان كل شيء جاهزًا. تم الحصول على التأشيرات، وتوقيع العقود، وحجز الطيران. كان من المقرر وصولهم إلى إيطاليا في 10 أكتوبر 2023. لكن بعد 7 أكتوبر، تغير كل شيء. في غضون ساعات، تحول الحلم إلى كابوس.",
+            dream_text3:
+              "في 15 أكتوبر 2023 - اليوم الذي كان من المقرر أن تبدأ فيه التدريبات في ميلانو - تلقينا الخبر المدمر: قُتل إبراهيم سعيدام، الذي لعب دور أوديسيوس. حصل إبراهيم بعد وفاته على جائزة 'رئيس لجنة التحكيم' في جوائز إيفو كييزا الدولية الرابعة من جاد ليرنر. تم استلام الجائزة من قبل منسقي المشروع سيمون بييترو دي دومينيكو وإيفان تافيرنيتي، مع الوعد بتسليمها لوالد إبراهيم - الناجي الوحيد من المجزرة - عندما يكون ذلك ممكنًا.",
+            newproject_title: "المشروع الجديد: الفلسطينيون عيناك",
+            newproject_text:
+              "بعد فترة من اليأس العميق، أدرك فنانو أنقا - الإيطاليون والغزيون - أن أفضل طريقة لتكريم إبراهيم هي المقاومة من خلال الفن. على الرغم من القصف المستمر وظروف البقاء، قرروا إنشاء عمل جديد: صرخة يأس لا تسد طريق الأمل. الظروف الحالية تمنع هؤلاء الفنانين الشباب من العودة إلى المسرح المادي، لكن لا شيء يمكنه أن يمنعهم من إسناد قصصهم إلى الكلمة المكتوبة.",
+            doc_title: "الفيلم الوثائقي",
+            doc_text:
+              "سيمتد تأثير 'الفلسطينيون عيناك' إلى ما وراء المسرح. سيتم تسجيل كل عرض للمساهمة في فيلم وثائقي جماعي، يجمع المشاعر والتفسيرات من مختلف المسارح في جميع أنحاء البلاد.",
+            conclusion_title: "خاتمة",
+            conclusion_text:
+              "لطالما امتلك المسرح القدرة على قول ما غالبًا ما يتم تجاهله. من خلال 'الفلسطينيون عيناك'، يمكن أخيرًا سماع أولئك الذين يعيشون واقعًا لا يُرى عادةً إلا من خلال شظايا الأخبار المصفاة. هذا المشروع هو أكثر من مجرد مسرحية؛ إنه جسر بين العوالم وشهادة مدنية. العنوان مأخوذ من بيت للشاعر محمود درويش في <em>عاشق من فلسطين</em>.",
+            participate_title: "كيف تشارك: 15 أكتوبر 2026",
+            participate_text:
+              "للمساعدة في بناء هذه الذاكرة الجماعية، ندعو المؤسسات المسرحية والجمعيات والمدارس والمكتبات والتجمعات لاستضافة عرض في 15 أكتوبر 2026. صمم المشروع لتحقيق أقصى قدر من الاستدامة مع الحد الأدنى من المتطلبات التقنية؛ يمكن تقديمه كقراءة درامية بسيطة.",
+            credits_title: "الاعتمادات",
+            authors_label: "<strong>المؤلفون:</strong>",
+            tutors_text:
+              "<strong>الموجهون:</strong> سيمون بييترو دي دومينيكو (منسق)، جوليا بورغي، ستيفانيا بوراسكي، دوناتو لوياكونو، ماتيا ماجيرنا، إيفان تافيرنيتي.",
+            promoted_text:
+              "<strong>بإشتراك:</strong> مشروع REC.Palestina، APS Scighera، ACS ONG، VIK CENTER، PEM - HABITAT TEATRALI، وأودري أنبي.",
+            footer_text: "الفلسطينيون عيناك — سرد جماعي بلا حدود. © مسرح أنقا",
+          },
+        },
+      };
+
+      /* ─── i18n init ──────────────────────────────────────── */
+      i18next.use(i18nextBrowserLanguageDetector).init(
+        {
+          resources,
+          fallbackLng: "en",
+          detection: {
+            order: ["localStorage", "cookie", "navigator"],
+            caches: ["localStorage"],
+          },
+          interpolation: { escapeValue: false },
+        },
+        (err, t) => {
+          if (err) return;
+          updateContent();
+          applyDirection();
+        },
+      );
+
+      function updateContent() {
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          const val = i18next.t(key, { defaultValue: key });
+          if (val) el.innerHTML = val;
+        });
+      }
+
+      function applyDirection() {
+        document.body.setAttribute(
+          "dir",
+          i18next.language === "ar" ? "rtl" : "ltr",
+        );
+      }
+
+      /* ─── Lang switcher ──────────────────────────────────── */
+      const globeBtn = document.getElementById("globeButton");
+      const langMenu = document.getElementById("langMenu");
+
+      globeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        langMenu.classList.toggle("show");
+      });
+      document.addEventListener("click", (e) => {
+        if (!globeBtn.contains(e.target) && !langMenu.contains(e.target))
+          langMenu.classList.remove("show");
+      });
+      document.querySelectorAll(".lang-option").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          i18next.changeLanguage(btn.dataset.lang, () => {
+            updateContent();
+            applyDirection();
+            langMenu.classList.remove("show");
+          });
+        });
+      });
+    </script>
   </body>
 </html>
