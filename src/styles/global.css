@@ -125,11 +125,24 @@ body {
 /* ─── Header ─────────────────────────────────────────── */
 .site-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   padding: 1rem 0 clamp(0.6rem, 1vw, 2.5rem);
   border-bottom: 1px solid var(--border);
   margin-bottom: clamp(2rem, 4vw, 4rem);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  display: block;
+  width: min(220px, 65vw);
+  height: auto;
+  max-width: 100%;
 }
 
 /* ─── Lang switcher ──────────────────────────────────── */
@@ -286,6 +299,13 @@ a {
   min-height: 160px;
   position: relative;
   width: calc(50% - 0.5rem);
+}
+
+/* make the .credit-item take full width on small screens */
+@media (max-width: 768px) {
+  .credit-item {
+    width: 100%;
+  }
 }
 
 .credit-item::after {
