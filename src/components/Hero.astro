@@ -109,10 +109,14 @@ import heroImage from "../assets/hero.jpg";
     letter-spacing: 0.04em;
   }
   /* Responsive */
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     .hero {
       min-height: 80vh;
       padding-bottom: 3rem;
+    }
+
+    .hero img {
+      object-position: 60% 30%;
     }
     .hero-cta-block {
       gap: 0.6rem;
@@ -124,6 +128,9 @@ import heroImage from "../assets/hero.jpg";
   @media (max-width: 480px) {
     h1 {
       margin-bottom: 0.3em;
+    }
+     .hero img {
+      object-position: 80% 30%;
     }
     .hero-quote {
       margin: 0.8rem auto 1.5rem;
