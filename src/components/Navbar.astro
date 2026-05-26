@@ -1,0 +1,172 @@
+---
+import { Image } from "astro:assets";
+import myImage from "../assets/anQa-03.png";
+---
+
+<nav class="site-nav" aria-label="Main navigation">
+  <Image src={myImage} alt="Anqa Theater" class="nav-logo" />
+  <ul class="nav-links">
+    <li><a href="#why-oct15" data-i18n="nav_why">Why Oct 15th</a></li>
+    <li><a href="#how-to-join" data-i18n="nav_join">How to Join</a></li>
+    <li><a href="#about-project" data-i18n="nav_about">About Project</a></li>
+    <li><a href="#about-us" data-i18n="nav_about_us">About Us</a></li>
+    <li><a href="#authors-credits" data-i18n="nav_stories">The Stories</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-area">
+      <button class="globe-btn" id="globeButton" aria-label="Change language">
+        <svg
+          class="globe-icon"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12" cy="12" r="10" stroke="currentColor" fill="none"
+          ></circle>
+          <path
+            d="M2 12H22M12 2C9.5 4.5 8 8 8 12C8 16 9.5 19.5 12 22C14.5 19.5 16 16 16 12C16 8 14.5 4.5 12 2Z"
+            stroke="currentColor"
+            fill="none"></path>
+        </svg>
+      </button>
+      <div id="langMenu" class="lang-dropdown">
+        <button data-lang="en" class="lang-option">English</button>
+        <button data-lang="it" class="lang-option">Italiano</button>
+        <button data-lang="fr" class="lang-option">Français</button>
+        <button data-lang="ar" class="lang-option">العربية</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .site-nav {
+    z-index: 1000;
+    /* background: rgba(249, 247, 245, 0.96); */
+
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 2rem;
+    flex-wrap: wrap;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+  .nav-logo {
+    height: 42px;
+    width: auto;
+    max-width: 180px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1rem 1.8rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    font-family: var(--ff-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    color: var(--crimson);
+  }
+
+  .nav-links a.nav-cta {
+    color: var(--crimson);
+    border: 1px solid var(--crimson-mid);
+    padding: 0.35rem 0.9rem;
+    border-radius: 30px;
+  }
+
+  .nav-links a.nav-cta:hover {
+    background: var(--crimson-dim);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* ─── Lang switcher (shared) ────────────────────────── */
+  .lang-area {
+    position: relative;
+  }
+
+  .globe-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px;
+    border-radius: 50%;
+    transition: background 0.15s ease;
+  }
+  .globe-btn:hover {
+    background: var(--crimson-dim);
+  }
+
+  .globe-icon {
+    width: 26px;
+    height: 26px;
+    stroke: var(--crimson);
+    stroke-width: 1.4;
+    fill: none;
+  }
+
+  .lang-dropdown {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+    padding: 0.5rem 0;
+    min-width: 140px;
+    z-index: 100;
+    display: none;
+  }
+  .lang-dropdown.show {
+    display: block;
+  }
+
+  .lang-option {
+    padding: 0.65rem 1.3rem;
+    font-family: var(--ff-body);
+    font-size: 0.9rem;
+    color: var(--ink);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: background 0.12s;
+  }
+  .lang-option:hover {
+    background: var(--crimson-dim);
+  }
+
+  @media (max-width: 800px) {
+    .nav-links {
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 100%;
+    }
+  }
+</style>

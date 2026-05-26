@@ -122,7 +122,7 @@ body {
   user-select: none;
 }
 
-/* ─── Header ─────────────────────────────────────────── */
+/* ─── Original Header (logo + lang) ─────────────────── */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -145,67 +145,7 @@ body {
   max-width: 100%;
 }
 
-/* ─── Lang switcher ──────────────────────────────────── */
-.lang-area {
-  position: relative;
-}
-
-.globe-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px;
-  border-radius: 50%;
-  transition: background 0.15s ease;
-}
-.globe-btn:hover {
-  background: var(--crimson-dim);
-}
-
-.globe-icon {
-  width: 26px;
-  height: 26px;
-  stroke: var(--crimson);
-  stroke-width: 1.4;
-  fill: none;
-}
-
-.lang-dropdown {
-  position: absolute;
-  top: 48px;
-  right: 0;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
-  padding: 0.5rem 0;
-  min-width: 140px;
-  z-index: 100;
-  display: none;
-}
-.lang-dropdown.show {
-  display: block;
-}
-
-.lang-option {
-  padding: 0.65rem 1.3rem;
-  font-family: var(--ff-body);
-  font-size: 0.9rem;
-  color: var(--ink);
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  width: 100%;
-  text-align: left;
-  transition: background 0.12s;
-}
-.lang-option:hover {
-  background: var(--crimson-dim);
-}
-
+/* ─── New Fixed Navbar ───────────────────────────────── */
 /* ─── Typography ─────────────────────────────────────── */
 h1 {
   font-family: var(--ff-display);
@@ -223,15 +163,12 @@ h2 {
   font-weight: 700;
   line-height: 1.18;
   color: var(--crimson);
-  /* border-left: 4px solid var(--crimson); */
-  /* padding-left: 1.1rem; */
   margin: 0 0 0.9em;
 }
 
 p {
   margin-bottom: 1.2em;
   font-weight: 400;
-  font-size: inherit;
 }
 p strong {
   font-weight: 500;
@@ -270,7 +207,7 @@ a {
   margin: clamp(1.5rem, 3vw, 3rem) 0;
 }
 
-/* ─── Email block ────────────────────────────────────── */
+/* ─── Email block (original) ─────────────────────────── */
 .email-line {
   background: #fff;
   border: 1px solid #ddd8d8;
@@ -283,7 +220,7 @@ a {
   color: var(--ink-soft);
 }
 
-/* ─── Credit pills ───────────────────────────────────── */
+/* ─── Credit pills (original) ───────────────────────── */
 .credit-block {
   display: flex;
   flex-wrap: wrap;
@@ -301,7 +238,6 @@ a {
   width: calc(50% - 0.5rem);
 }
 
-/* make the .credit-item take full width on small screens */
 @media (max-width: 768px) {
   .credit-item {
     width: 100%;
@@ -379,6 +315,262 @@ a {
   letter-spacing: 0.01em;
 }
 
+/* ─── Hero Section (new) ─────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 4rem;
+  overflow: hidden;
+  background: var(--paper);
+  margin-top: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  background-color: #d9cec4;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(249, 247, 245, 0.65) 0%,
+    rgba(249, 247, 245, 0.2) 45%,
+    rgba(249, 247, 245, 0) 70%,
+    var(--paper) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 820px;
+  padding: 0 1.5rem;
+}
+
+.hero-logo-area {
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.hero-logo-area img {
+  height: 70px;
+  width: auto;
+  opacity: 0.95;
+}
+
+.hero-quote {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 1.2rem auto 2rem;
+  line-height: 1.65;
+}
+
+.hero-cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.hero-cta-label {
+  font-family: var(--ff-body);
+  font-size: clamp(1.3rem, 2vw + 0.5rem, 1.8rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.7;
+}
+
+/* ─── Buttons (primary & email) ───────────────────────── */
+
+/* ─── Countdown Banner ────────────────────────────────── */
+.countdown-banner {
+  background: var(--paper-warm);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  margin: 0;
+}
+
+.countdown-label {
+  font-family: var(--ff-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 0.7rem;
+}
+
+.countdown-units {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.countdown-number {
+  font-family: var(--ff-display);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  min-width: 2.2ch;
+}
+
+.countdown-unit-label {
+  font-family: var(--ff-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.65;
+}
+
+/* ─── Application Box & Lists ─────────────────────────── */
+.application-box {
+  background: var(--paper-warm);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem 2rem;
+  margin: 2rem 0;
+}
+
+.application-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.application-list li {
+  padding: 0.5rem 0 0.5rem 1.3rem;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.application-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--crimson);
+}
+
+.application-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+/* ─── Stories list (plain, no cards) ──────────────────── */
+.stories-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.stories-list li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.stories-list li:last-child {
+  border-bottom: none;
+}
+
+/* ─── Authors list (typographic, no cards) ────────────── */
+.author-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.author-list li {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.author-list li:last-child {
+  border-bottom: none;
+}
+
+.author-name {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--crimson);
+  margin-bottom: 0.25rem;
+}
+
+.author-works {
+  font-family: "Cormorant Garamond", var(--ff-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+
+/* ─── Tutor list (inline flex) ────────────────────────── */
+.tutor-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 2rem;
+}
+
+.tutor-list li {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ─── Crew strip ──────────────────────────────────────── */
+.crew-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin: 1rem 0;
+}
+
+.crew-strip span {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
 /* ─── Divider ────────────────────────────────────────── */
 .section-rule {
   border: 0;
@@ -423,14 +615,69 @@ body[dir="rtl"] .lang-dropdown {
 body[dir="rtl"] .lang-option {
   text-align: right;
 }
+body[dir="rtl"] .application-list li {
+  padding-left: 0;
+  padding-right: 1.3rem;
+}
+body[dir="rtl"] .application-list li::before {
+  left: auto;
+  right: 0;
+}
+body[dir="rtl"] .nav-links a {
+  text-align: right;
+}
+body[dir="rtl"] .hero-quote {
+  border-right: none;
+}
 
-/* ─── Responsive ─────────────────────────────────────── */
+/* ─── Responsive adjustments for new elements ─────────── */
+@media (max-width: 700px) {
+  .site-nav {
+    padding: 0.6rem 1rem;
+  }
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    order: 3;
+    gap: 0.8rem;
+  }
+  .nav-links a {
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+  .nav-right {
+    order: 2;
+  }
+  .hero-logo-area img {
+    height: 50px;
+  }
+  .hero {
+    min-height: 80vh;
+    padding-bottom: 3rem;
+  }
+  .application-box {
+    padding: 1.5rem;
+  }
+  .countdown-units {
+    gap: 1rem;
+  }
+  .hero-cta-block {
+    gap: 0.6rem;
+  }
+  .btn-primary,
+  .btn-email {
+    padding: 0.7rem 1.6rem;
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 640px) {
   .opening-quote {
     padding: 1rem 1.2rem;
   }
 }
 
+/* ─── Phoenix stage (legacy, kept as is) ─────────────── */
 phoenix-stage {
   position: relative;
   width: 100%;
