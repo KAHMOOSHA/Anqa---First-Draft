@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel/static';
 
 export default defineConfig({
-    site: 'https://KAHMOOSHA.github.io',
-    base: '/Anqa---First-Draft/',
+    output: 'static',
+    adapter: vercel(),
 });
