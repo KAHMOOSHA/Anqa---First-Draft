@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-
 export default defineConfig({
-    site: 'https://KAHMOOSHA.github.io',
-    base: '/Anqa---First-Draft/',
+    output: 'static',
+    site: 'https://www.anqa.group/',
 });
