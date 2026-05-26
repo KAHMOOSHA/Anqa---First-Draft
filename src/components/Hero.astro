@@ -1,15 +1,11 @@
 ---
 // Hero.astro – Full‑width hero with background image, title, quote, and CTA
 import { Image } from "astro:assets";
-import myImage from "../assets/anQa-03.png";
+import myImage from "../../public/assets/hero.jpg";
 ---
 
 <section class="hero" aria-label="Hero">
-  <div
-    class="hero-bg"
-    style="background-image: url({myImage.src});"
-  >
-  </div>
+  <div class="hero-bg" style="background-image: url({myImage.src});"></div>
   <div class="hero-overlay"></div>
   <!-- <div class="hero-logo-area">
     <Image src={myImage} alt="Anqa Theater Logo" />
