@@ -565,10 +565,7 @@ body[dir="rtl"] .hero-quote {
   .hero-logo-area img {
     height: 50px;
   }
-  .hero {
-    min-height: 80vh;
-    padding-bottom: 3rem;
-  }
+ 
   .application-box {
     padding: 1.5rem;
   }

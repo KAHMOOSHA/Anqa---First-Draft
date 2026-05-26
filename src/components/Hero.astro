@@ -5,7 +5,9 @@ import heroImage from "../assets/hero.jpg";
 ---
 
 <section class="hero" aria-label="Hero">
-  <img src={heroImage.src} alt="Hero image" />
+  <a href="#" class="skip-link" data-i18n="skip_to_content">
+    <img src={heroImage.src} alt="Hero image" />
+  </a>
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
@@ -47,8 +49,8 @@ import heroImage from "../assets/hero.jpg";
     object-fit: cover;
     object-position: center 30%;
     opacity: 1;
-    
   }
+
   .hero-bg {
     position: absolute;
     inset: 0;
@@ -62,7 +64,7 @@ import heroImage from "../assets/hero.jpg";
     position: absolute;
     inset: 0;
     background: white;
-    opacity: 0.50;
+    opacity: 0.5;
   }
   .hero-content {
     position: relative;
@@ -114,6 +116,9 @@ import heroImage from "../assets/hero.jpg";
     }
     .hero-cta-block {
       gap: 0.6rem;
+    }
+    .hero img {
+      object-position: 60% 30%;
     }
   }
   @media (max-width: 480px) {
