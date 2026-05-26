@@ -1,8 +1,10 @@
 ---
 import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
 ---
 
 <nav class="site-nav" aria-label="Main navigation">
+  <img src={logo.src} alt="Shining Solstice logo" class="nav-logo" />
   <ul class="nav-links">
     <li><a href="#why-oct15" data-i18n="nav_why">Why Oct 15th</a></li>
     <li><a href="#how-to-join" data-i18n="nav_join">How to Join</a></li>
@@ -97,6 +99,7 @@ import { Image } from "astro:assets";
     display: flex;
     align-items: center;
     gap: 1rem;
+
   }
 
   /* ─── Lang switcher (shared) ────────────────────────── */
