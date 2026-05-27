@@ -8,6 +8,7 @@ import myImage from "../assets/anQa-03.png";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
 import CountdownTimer from "../components/CountdownTimer.astro";
+import FollowInstagram from "../components/FollowInstagram.astro";
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import CountdownTimer from "../components/CountdownTimer.astro";
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
     <title>Palestinians are Your Eyes | Anqa Theater</title>
+    <link rel="icon" href="/favicon.svg" />
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&display=swap"
@@ -44,11 +46,24 @@ import CountdownTimer from "../components/CountdownTimer.astro";
 
       <!-- Hero component (full‑width with background image and CTA) -->
       <Hero />
+      <div class="hero-cta-block">
+        <p class="hero-cta-label" data-i18n="cta_eyebrow">
+          Let's do theater together
+        </p>
+        <a
+          style="text-align: center; margin:  0.5rem 0"
+          href="#how-to-join"
+          class="btn-primary"
+          data-i18n="cta_primary"
+        >
+          Host a Performance on October 15th — Join the Global Premiere
+        </a>
+      </div>
 
       <!-- Countdown Timer component -->
       <CountdownTimer />
 
-      <main>
+      <>
         <!-- PROJECT INTRO -->
         <section id="project-intro" class="content-section reveal">
           <h2 data-i18n="project_title">Palestinians Are Your Eyes</h2>
@@ -335,7 +350,9 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             >
           </div>
         </section>
-      </main>
+        <hr />
+        <FollowInstagram />
+      </>
 
       <footer class="reveal">
         <span data-i18n="footer_text"
@@ -378,7 +395,8 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             title_main: "Palestinians are Your Eyes",
             opening_quote:
               '"Palestinians are your eyes, your tattoo. Palestinians are your name, your dreams, your thoughts, and your scarf."',
-            cta_eyebrow: "Let's do theater together!",
+            cta_eyebrow:
+              'Let\'s do <span style="color: var(--crimson);\ text-decoration: underline;">theater</span> together!',
             cta_primary:
               "Host a Performance on October 15th — Join the Global Premiere",
 
@@ -475,6 +493,7 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             tutor1: "Simon Gusman (Coordinator)",
             crew_label: "Production",
             promoted_label: "Promoted by",
+            instagram_title: "Follow Our Journey",
 
             footer_text:
               "Palestinians are Your Eyes — For Our Dreamer © Anqa Theater Company",
@@ -493,7 +512,8 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             title_main: "Palestinesi sono i tuoi occhi",
             opening_quote:
               '"I palestinesi sono i tuoi occhi, il tuo tatuaggio. I palestinesi sono il tuo nome, i tuoi sogni, i tuoi pensieri, il tuo fazzoletto."',
-            cta_eyebrow: "Facciamo teatro insieme!",
+            cta_eyebrow:
+              'Facciamo <span style="color: var(--crimson); text-decoration: underline;">teatro</span> insieme!',
             cta_primary:
               "Ospita una lettura il 15 ottobre — Unisciti alla prima mondiale",
 
@@ -591,6 +611,7 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             tutor1: "Simon Gusman (Coordinatore)",
             crew_label: "Produzione",
             promoted_label: "Promosso da",
+            instagram_title: "Segui il nostro viaggio",
 
             footer_text:
               "Palestinesi sono i tuoi occhi — Per il nostro sognatore © Anqa Theater Company",
@@ -609,7 +630,7 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             title_main: "Les Palestiniens sont tes yeux",
             opening_quote:
               '"Les Palestiniens sont tes yeux, ton tatouage. Les Palestiniens sont ton nom, tes rêves, tes pensées, ton mouchoir."',
-            cta_eyebrow: "Faisons du théâtre ensemble !",
+            cta_eyebrow: "Faisons du <span style=\"color: var(--crimson); text-decoration: underline;\">théâtre</span> ensemble !",
             cta_primary:
               "Accueillez une lecture le 15 octobre — Rejoignez la première mondiale",
 
@@ -706,6 +727,7 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             tutor1: "Simon Gusman (Coordinateur)",
             crew_label: "Production",
             promoted_label: "Avec le soutien de",
+            instagram_title: "Suivez notre parcours",
 
             footer_text:
               "Les Palestiniens sont tes yeux — Pour notre rêveur © Anqa Theater Company",
@@ -724,7 +746,7 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             title_main: "الفلسطينيون عيناك",
             opening_quote:
               '"الفلسطينيون عيناك، وشمك. الفلسطينيون اسمك، أحلامك، أفكارك، ومنديلك."',
-            cta_eyebrow: "لنقدّم المسرح معاً!",
+            cta_eyebrow: "لنقدّم <span style=\"color: var(--crimson); text-decoration: underline;\">المسرح</span> معاً!",
             cta_primary:
               "استضف قراءة في ١٥ أكتوبر — انضم إلى العرض الأول العالمي",
 
@@ -812,7 +834,7 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             story6: "عنقاء المغرب — علاء صبيح",
 
             authors_label: "المؤلفون وقصصهم",
-            author1_works: "قصيدة الأم · البيدق",
+            author1_works: "القصيدة الأم · البيدق",
             author2_works: "تحت سماء خضراء زيتونية · عمود في الإسمنت",
             author3_works: "الدرس الأول",
             author4_works: "عنقاء المغرب",
@@ -820,6 +842,7 @@ import CountdownTimer from "../components/CountdownTimer.astro";
             tutor1: "سيمون غوسمان (منسق)",
             crew_label: "الإنتاج",
             promoted_label: "بدعم من",
+            instagram_title: "تابع رحلتنا",
 
             footer_text: "الفلسطينيون عيناك — لحالمنا الشهيد © مسرح أنقا",
           },

@@ -145,7 +145,26 @@ body {
   max-width: 100%;
 }
 
-/* ─── New Fixed Navbar ───────────────────────────────── */
+/* ───  hero  ───────────────────────────────── */
+.hero-cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  border: 2px solid var(--border);
+  padding: 1.2rem 1.8rem;
+}
+
+.hero-cta-label {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(0.8rem, 6vw + 1rem, 5.5rem);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+  margin-bottom: 0;
+}
 /* ─── Typography ─────────────────────────────────────── */
 h1 {
   font-family: var(--ff-display);
@@ -314,7 +333,6 @@ a {
   padding-bottom: 1px;
   letter-spacing: 0.01em;
 }
-
 
 /* ─── Countdown Banner ────────────────────────────────── */
 .countdown-banner {
@@ -565,7 +583,7 @@ body[dir="rtl"] .hero-quote {
   .hero-logo-area img {
     height: 50px;
   }
- 
+
   .application-box {
     padding: 1.5rem;
   }

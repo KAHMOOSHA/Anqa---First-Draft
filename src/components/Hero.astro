@@ -12,22 +12,16 @@ import heroImage from "../assets/hero.jpg";
 
   <div class="hero-content">
     <h1 data-i18n="title_main">Palestinians are Your Eyes</h1>
-    <p class="hero-quote" data-i18n="opening_quote">
-      "Palestinians are your eyes, your tattoo. Palestinians are your name, your
-      dreams, your thoughts, and your scarf."
-    </p>
-    <div class="hero-cta-block">
-      <span class="hero-cta-label" data-i18n="cta_eyebrow">
-        Let's do theater together
-      </span>
-      <a href="#how-to-join" class="btn-primary" data-i18n="cta_primary">
-        Host a Performance on October 15th — Join the Global Premiere
-      </a>
-    </div>
+    <p class="hero-quote" data-i18n="opening_quote"></p>
+    
   </div>
 </section>
 
 <style>
+  /* .btn-primary {
+    font: bold;
+    font-size: 2rem !important;
+  } */
   .hero {
     position: relative;
     min-height: 90vh;
@@ -50,6 +44,11 @@ import heroImage from "../assets/hero.jpg";
     object-position: center 30%;
     opacity: 1;
   }
+  .hero a {
+    font-family: "Source Serif Pro", Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
 
   .hero-bg {
     position: absolute;
@@ -64,7 +63,7 @@ import heroImage from "../assets/hero.jpg";
     position: absolute;
     inset: 0;
     background: white;
-    opacity: 0.5;
+    opacity: 0.3;
   }
   .hero-content {
     position: relative;
@@ -88,26 +87,19 @@ import heroImage from "../assets/hero.jpg";
     font-family: "Playfair Display", Georgia, serif;
     font-style: italic;
     font-size: clamp(1rem, 2.2vw, 1.35rem);
-    color: var(--ink-soft, #2e2b2c);
+    color: var(--crimson, #232222);
     max-width: 640px;
     margin: 1.2rem auto 2rem;
     line-height: 1.65;
+    mix-blend-mode: difference;
+    background: rgba(255, 255, 255, 0.8);
+
   }
   /* CTA label – small uppercase Source Serif */
 
-  .hero-cta-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.85rem;
-    margin-top: 1rem;
-  }
-  /* Button styling – uses global .btn-primary from global.css, but we keep a local fallback */
-  .btn-primary {
-    font-family: "Source Serif 4", Georgia, serif;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
+  
+
+  
   /* Responsive */
   @media (max-width: 768px) {
     .hero {
@@ -129,7 +121,7 @@ import heroImage from "../assets/hero.jpg";
     h1 {
       margin-bottom: 0.3em;
     }
-     .hero img {
+    .hero img {
       object-position: 75% 30%;
     }
     .hero-quote {

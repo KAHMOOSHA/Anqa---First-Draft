@@ -1,0 +1,106 @@
+---
+// FollowInstagram.astro – Simple Instagram follow section
+---
+
+<section class="follow-instagram reveal">
+  <div class="follow-inner">
+    <svg
+      class="instagram-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="2"
+        y="2"
+        width="20"
+        height="20"
+        rx="5"
+        stroke="currentColor"
+        stroke-width="1.5"
+        fill="none"></rect>
+      <circle
+        cx="12"
+        cy="12"
+        r="4.5"
+        stroke="currentColor"
+        stroke-width="1.5"
+        fill="none"></circle>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor"></circle>
+    </svg>
+    <h2 data-i18n="instagram_title">Follow Our Journey</h2>
+    <!-- <p data-i18n="instagram_text">
+      Behind the scenes, updates, and stories from the Anqa company.
+    </p> -->
+    <a
+      href="https://www.instagram.com/the.anqa.group"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-instagram"
+      data-i18n="instagram_btn"
+    >
+      @anqatheater
+    </a>
+  </div>
+</section>
+
+<style>
+  .follow-instagram {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--paper-warm, #f2eeea);
+    margin: 2rem auto;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  .follow-inner {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .instagram-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 1rem;
+    color: var(--crimson, #561011);
+  }
+  h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--crimson, #561011);
+    margin-bottom: 0.5rem;
+    border-left: none;
+    padding-left: 0;
+  }
+  p {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--ink-soft, #2e2b2c);
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+  .btn-instagram {
+    display: inline-block;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--paper, #f9f7f5);
+    background: var(--crimson, #561011);
+    padding: 0.7rem 1.8rem;
+    text-decoration: none;
+    border-radius: 30px;
+    transition:
+      background 0.2s ease,
+      transform 0.1s ease;
+  }
+  .btn-instagram:hover {
+    background: #6b1a1c;
+    transform: translateY(-1px);
+  }
+
+  /* RTL adjustment */
+  body[dir="rtl"] h2 {
+    border-right: none;
+  }
+</style>
